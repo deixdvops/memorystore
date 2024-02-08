@@ -17,3 +17,9 @@ output "redis_cluster" {
   description = "The redis cluster created"
   value       = google_redis_cluster.redis_cluster
 }
+output "cluster_id" {
+  description = "The ID of the Redis cluster."
+#   value       = module.redis_cluster.cluster_id
+  value = google_redis_cluster.redis_cluster.id
+}
+

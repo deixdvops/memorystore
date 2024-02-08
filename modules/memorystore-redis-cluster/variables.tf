@@ -44,20 +44,20 @@ variable "authorization_mode" {
   default     = "AUTH_MODE_DISABLED"
 }
 
-# variable "network" {
-#   description = "List of consumer network where the network address of the discovery endpoint will be reserved, in the form of projects/{network_project_id_or_number}/global/networks/{network_id}. Currently, only one item is supported"
-#   type        = list(string)
-# }
+variable "network" {
+  description = "List of consumer network where the network address of the discovery endpoint will be reserved, in the form of projects/{network_project_id_or_number}/global/networks/{network_id}. Currently, only one item is supported"
+  type        = list(string)
+}
 
-# variable "service_connection_policies" {
-#   description = "The Service Connection Policies to create"
-#   type = map(object({
-#     description     = optional(string)
-#     network_name    = string
-#     network_project = string
-#     subnet_names    = list(string)
-#     limit           = optional(number)
-#     labels          = optional(map(string), {})
-#   }))
-#   default = {}
-# }
+variable "service_connection_policies" {
+  description = "The Service Connection Policies to create"
+  type = map(object({
+    description     = optional(string)
+    network_name    = string
+    network_project = string
+    subnet_names    = list(string)
+    limit           = optional(number)
+    labels          = optional(map(string), {})
+  }))
+  default = {}
+}
