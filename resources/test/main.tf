@@ -7,7 +7,7 @@ module "redis_cluster" {
   network = ["projects/${var.project_id}/global/networks/${local.network_name}"]
 
   service_connection_policies = {
-    dev-redis-cluster-scp = {
+    qa_redis_cluster-redis-cluster-scp = {
       network_name    = local.network_name
       network_project = var.project_id
       subnet_names = local.subnet_names

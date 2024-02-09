@@ -1,7 +1,7 @@
 locals {
-  network_name = "sp-dev"
+  network_name = "qa-sp"
   subnet_names =[
-        "memo-redi-1", 
+        "qa-sp", 
         
       ]
 }
