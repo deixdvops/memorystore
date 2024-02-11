@@ -1,7 +1,7 @@
 locals {
-  network_name = "qa-sp"
-  subnet_names =[
-        "qa-sp", 
-        
-      ]
+  network_name = "main-1"
+  subnet_names = [
+    "private",
+
+  ]
 }

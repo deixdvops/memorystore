@@ -29,7 +29,7 @@ variable "shard_count" {
 variable "replica_count" {
   description = "The number of replica nodes per shard. Each shard can have 0, 1, or 2 replica nodes. Replicas provide high availability and additional read throughput, and are evenly distributed across zones"
   type        = number
-  default     = 0
+  default     = 1
 }
 
 variable "transit_encryption_mode" {
@@ -49,6 +49,17 @@ variable "network" {
   type        = list(string)
 }
 
+variable "authorized_network" {
+  description = "The full name of the Google Compute Engine network to which the instance is connected. If left unspecified, the default network will be used."
+  type        = string
+  default     = null
+}
+variable "connect_mode" {
+  description = "The connection mode of the Redis instance. Can be either DIRECT_PEERING or PRIVATE_SERVICE_ACCESS. The default connect mode if not provided is DIRECT_PEERING."
+  type        = string
+  default     = "PRIVATE_SERVICE_ACCESS"
+}
+
 variable "service_connection_policies" {
   description = "The Service Connection Policies to create"
   type = map(object({
@@ -61,3 +72,4 @@ variable "service_connection_policies" {
   }))
   default = {}
 }
+
