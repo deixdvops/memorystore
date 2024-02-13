@@ -10,6 +10,7 @@ variable "region" {
 }
 variable "name" {
   type    = string
+  description = "The name of the redis cluster you are creating"
   default = "test2-redis-cluster"
 
 }
