@@ -1,0 +1,2 @@
+That's a good point. In the sandbox environment, I needed to create my own VPC to test out network configurations. Enabling Service Identity and assigning the Network Connectivity Service Agent role was necessary to grant the required permissions to Google Cloud services and the Redis cluster to establish and manage network connections securely.
+ I am about to test this in dev-unstable without them, and I'll provide an update later.
