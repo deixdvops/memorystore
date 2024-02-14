@@ -1,6 +1,6 @@
-# project_id                 = "deix-devops"
-# name                    = "redis-test"
-# region                  = "us-central1"
+project_id                 = "deix-devops"
+name                    = "redis-test"
+region                  = "us-central1"
 
 
 

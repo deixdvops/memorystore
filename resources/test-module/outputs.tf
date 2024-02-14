@@ -1,6 +1,6 @@
-output "project" {
+output "project_id" {
   description = "The redis cluster Project ID"
-  value       = local.project
+  value       = var.project_id
 }
 output "cluster_region" {
   description = "The redis cluster region"
