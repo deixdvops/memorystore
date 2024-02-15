@@ -7,6 +7,8 @@ module "redis_cluster" {
   region  = var.region
   shard_count   = var.shard_count
   replica_count = var.replica_count
+  enable_apis = var.enable_apis
+
   
   
   network = ["projects/${var.project_id}/global/networks/${var.network_name}"]

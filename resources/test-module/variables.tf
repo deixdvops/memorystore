@@ -22,6 +22,7 @@ variable "shard_count" {
 variable "replica_count" {
     type = number
     description = "The redis cluster replica count"
+    default = 1
   
 }
 
@@ -47,4 +48,9 @@ variable "transit_encryption_mode" {
     description = "The in-transit encryption for the Redis cluster. If not provided, encryption is disabled for the cluster. Default value is TRANSIT_ENCRYPTION_MODE_DISABLED. Possible values are: TRANSIT_ENCRYPTION_MODE_UNSPECIFIED, TRANSIT_ENCRYPTION_MODE_DISABLED, TRANSIT_ENCRYPTION_MODE_SERVER_AUTHENTICATION"
     default = "TRANSIT_ENCRYPTION_MODE_DISABLED"
   
+}
+variable "enable_apis" {
+  description = "Flag for enabling memcache.googleapis.com in your project"
+  type        = bool
+  default     = false
 }
