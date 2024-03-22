@@ -6,7 +6,6 @@ module "redis_cluster" {
   shard_count        = var.shard_count
   replica_count      = var.replica_count
   project_id         = var.project_id
-
   network_name    = var.network_name
   subnet_names    = var.subnet_names
 }

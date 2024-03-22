@@ -1,11 +1,11 @@
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_service
 resource "google_project_service" "compute" {
-  service = "compute.googleapis.com"
+  service                    = "compute.googleapis.com"
   disable_dependent_services = true
 }
 
 resource "google_project_service" "container" {
-  service = "container.googleapis.com"
+  service                    = "container.googleapis.com"
   disable_dependent_services = true
 }
 
@@ -21,4 +21,8 @@ resource "google_compute_network" "main-1" {
     google_project_service.compute,
     google_project_service.container
   ]
+}
+
+output "network_self_link" {
+  value = google_compute_network.main-1.self_link
 }

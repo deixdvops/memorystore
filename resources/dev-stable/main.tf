@@ -8,5 +8,6 @@ module "redis_cluster" {
   project_id         = local.project_id
   network_name       = local.network_name
   subnet_names       = local.subnet_names
-  enable_apis = false
+  
+  
 }

@@ -29,7 +29,7 @@ resource "google_container_cluster" "primary" {
   }
 
   workload_identity_config {
-    workload_pool = "deix-devops.svc.id.goog"
+    workload_pool = "gatdeix-devops.svc.id.goog"
   }
 
   ip_allocation_policy {
