@@ -1,11 +1,10 @@
 provider "google" {
-  project = "gatdeix-devops" # Replace with your GCP project ID
-  #region  = "your_region"    # Replace with your desired region
+  project = var.project_id # 
 }
 
 resource "google_dns_managed_zone" "private" {
-  name        = "private-zone"   # Replace with your desired zone name
-  dns_name    = "internal.cmba." # Replace with your domain name ending with a period
+  name        = "private-zone"
+  dns_name    = "internal.cmb."
   description = "Managed private zone for food"
 
   visibility = "private"
@@ -20,7 +19,7 @@ resource "google_dns_managed_zone" "private" {
 resource "google_dns_record_set" "redis_dns" {
   name = "redis.${google_dns_managed_zone.private.dns_name}"
   type = "A"
-  ttl  = 300 # Adjust TTL as needed
+  ttl  = 300
 
   managed_zone = google_dns_managed_zone.private.name
 
