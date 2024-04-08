@@ -1,4 +1,6 @@
 locals {
+  service_account_name = ""
+
   project_id = ""
   location   = "us-west2"
   bucket_names = {
@@ -7,15 +9,23 @@ locals {
   }
 }
 
+
 module "storage_buckets" {
-  source     = "terraform-google-modules/cloud-storage/google//modules/simple_bucket"
-  version    = "~> 5.0"
+  source = "../../../modules/buckets"
+
   project_id = local.project_id
-  for_each   = local.bucket_names
-  name       = each.value
   location   = local.location
-  iam_members = [{
-    role   = "roles/storage.objectCreator"
-    member = "serviceAccount:terraform@gatdeix-devops.iam.gserviceaccount.com"
-  }]
+  for_each   = { for bkt, bucket in local.bucket_names : bkt => bucket }
+  name       = each.value
+
 }
+resource "google_storage_bucket_iam_binding" "bucket_bindings" {
+  for_each = module.storage_buckets
+  bucket   = each.value.name
+
+  role    = "roles/storage.admin"
+  members = ["serviceAccount:${local.service_account_name}@${local.project_id}.iam.gserviceaccount.com"]
+}
+
+
+
